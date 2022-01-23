@@ -1,0 +1,41 @@
+<%= form_with(model: product) do |f|%>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :code %>
+    <%= f.text_field :code %>
+  </div>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price, step: :any %>
+  </div>
+  <div>
+    <%= f.label :price_discount_type %>
+    <%= f.select :price_discount_type,  [["Extra Unit", "extra_unit"],["Absolute", "absolute"],["Percent", "percent"]]%>
+  </div>
+  <div>
+    <%= f.label :from_amount %>
+    <%= f.number_field :from_amount, step: :any %>
+  </div>
+  <div>
+    <%= f.label :discount_value %>
+    <%= f.number_field :discount_value, step: :any %>
+  </div>
+  <div>
+    <%= f.submit "New Product" %>
+  </div>
+<% end %>
