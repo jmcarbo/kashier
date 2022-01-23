@@ -1,1 +1,10 @@
 Product List
+
+<% @products.each do |product| %>
+  <%= render product %>
+  <p>
+  <%= button_to "Delete", product, method: :delete %> 
+  </p>
+<% end %>
+
+<%= render "form", product: @product %>
