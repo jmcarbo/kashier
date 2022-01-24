@@ -18,4 +18,12 @@ RSpec.describe "Welcome", type: :system do
 
     expect(page).to have_content('Product List')
   end
+
+  it 'Press cash register to access cash register' do
+    visit '/'
+    
+    click_on "Cash Register"
+
+    expect(page).to have_content('Cash Register')
+  end
 end
