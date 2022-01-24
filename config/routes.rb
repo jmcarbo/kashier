@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :products
+
+  resource :cash_register, only: [ :show, :update, :destroy ]
 end

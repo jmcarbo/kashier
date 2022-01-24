@@ -27,6 +27,13 @@
     > git config --global user.email "you@example.com"
     > git config --global user.name "Your Name"
 
+# Heroku deployment
+
+```
+ heroku apps:create kashier
+ git push heroku main
+ heroku run rake db:migrate
+```
 
 # README
 
