@@ -1,0 +1,8 @@
+<%= form_with(model: [cash_register, cash_register.cash_register_lines.new]) do |f| %>
+  <%= hidden_field_tag :cash_register_id, cash_register.id %>
+  <div>
+    <%= f.label :product_id %>
+    <%= f.collection_select :product_id, Product.order(:code), :id, :description  %>
+    <%= f.submit "Add Product" %>
+  </div>
+<% end %>

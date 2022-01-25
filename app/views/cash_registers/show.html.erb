@@ -1,3 +1,82 @@
 <div>
-  Cash Register
+  Cash Register <%=@cash_register.id%>
 </div>
+
+<div>
+<% if @cash_register.cash_register_lines.count >0 %>
+  <table>
+    <tr>
+      <th>
+        Product Code
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Price
+      </th>
+    </tr>
+  <% @cash_register.cash_register_lines.each do |l| %>
+    <tr>
+      <td>
+        <%= l.product.code %>
+      </td>
+      <td>
+        <%= l.product.name %>
+      </td>
+      <td align="right">
+        <%= "#{l.product.price}€" %>
+      </td>
+    </tr>
+  <% end %>
+    <% gross_total, discount, total, extra_units_text = @cash_register.total %>
+    <tr>
+      <td>
+      </td>
+      <td align="right">
+        Gross Total:
+      </td>
+      <td align="right">
+        <%= gross_total %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td align="right">
+        Discount:
+      </td>
+      <td align="right">
+        <%= discount %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      </td>
+      <td align="right">
+        Total:
+      </td>
+      <td align="right">
+        <%= total %>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3">
+        Free products: <%= extra_units_text %>
+      </td>
+    </tr>
+  </table>
+<% end %>
+</div>
+
+<%= form_with(model: [@cash_register, @cash_register.cash_register_lines.new]) do |f| %>
+  <%= hidden_field_tag :cash_register_id, @cash_register.id %>
+  <div>
+    <%= f.label :product_id %>
+    <%= f.collection_select :product_id, Product.order(:code), :id, :description  %>
+    <%= f.submit "Add Product" %>
+  </div>
+<% end %>

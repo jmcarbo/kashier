@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resource :cash_register, only: [ :show, :update, :destroy ]
+  resource :cash_register, only: [ :show, :update, :destroy ] do
+    resources :cash_register_lines
+  end
 end
