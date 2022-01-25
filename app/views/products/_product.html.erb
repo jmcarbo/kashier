@@ -1,32 +1,28 @@
-<div>
-  <p>
-    <strong>Code:</strong>
+<tr>
+  <td>
     <%= product.code %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Name:</strong>
+  <td>
     <%= product.name %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Price:</strong>
+  <td>
     <%= product.price %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Price discount type:</strong>
+  <td>
     <%= product.price_discount_type %>
-  </p>
+  </td>
 
-  <p>
-    <strong>From amount:</strong>
+  <td>
     <%= product.from_amount %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Discount value:</strong>
+  <td>
     <%= product.discount_value %>
-  </p>
-
-</div>
+  </td>
+  <td>
+  <%= button_to "Delete", product, method: :delete %> 
+  </td>
+</tr>

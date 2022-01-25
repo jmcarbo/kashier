@@ -1,9 +1,12 @@
-<div>
-  Cash Register <%=@cash_register.id%>
-</div>
+<%= button_to "Home", "/", method: :get %>
+<h1>
+  Cash Register
+</h1>
+
 
 <div>
 <% if @cash_register.cash_register_lines.count >0 %>
+  <%= button_to "Clear cash register", @cash_register, method: :delete %> 
   <table>
     <tr>
       <th>
@@ -34,7 +37,7 @@
       <td>
       </td>
       <td align="right">
-        Gross Total:
+       <strong>Gross Total:</strong>
       </td>
       <td align="right">
         <%= gross_total %>
@@ -45,7 +48,7 @@
       <td>
       </td>
       <td align="right">
-        Discount:
+        <strong>Discount:</strong>
       </td>
       <td align="right">
         <%= discount %>
@@ -56,7 +59,7 @@
       <td>
       </td>
       <td align="right">
-        Total:
+        <strong>Total:</strong>
       </td>
       <td align="right">
         <%= total %>

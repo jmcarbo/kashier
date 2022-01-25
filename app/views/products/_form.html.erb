@@ -25,7 +25,7 @@
   </div>
   <div>
     <%= f.label :price_discount_type %>
-    <%= f.select :price_discount_type,  [["Extra Unit", "extra_unit"],["Absolute", "absolute"],["Percent", "percent"]]%>
+    <%= f.select :price_discount_type,  [["Extra Unit", "extra_unit"],["Absolute", "absolute"],["Percent", "percent"]], {:include_blank => ''}%>
   </div>
   <div>
     <%= f.label :from_amount %>

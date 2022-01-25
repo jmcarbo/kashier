@@ -1,5 +1,5 @@
 class CashRegister < ApplicationRecord
-  has_many :cash_register_lines
+  has_many :cash_register_lines, dependent: :delete_all
 
 
   def total 

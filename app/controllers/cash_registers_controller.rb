@@ -5,6 +5,13 @@ class CashRegistersController < ApplicationController
     #@cash_register_line = CashRegisterLine.new
   end
 
+  def destroy
+    @cash_register.destroy!
+    @cash_register = CashRegister.create
+    session[:cash_register_id] = @cash_register.id
+    redirect_to @cash_register
+  end
+
   private
 
   def set_cash_register

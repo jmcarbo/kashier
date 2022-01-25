@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to products_url, notice: "Product was successfully created." }
       else
-        format.html { render :index, status: :unprocessable_entity }
+        format.html { redirect_to products_url, notice: "Error adding product" }
       end
     end
   end
